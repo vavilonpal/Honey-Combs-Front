@@ -3,7 +3,7 @@ import Header from "./components/header/Header";
 function App() {
   return (
     <Wrapper>
-      <Header />
+      <Header/>
     </Wrapper>
   );
 }
