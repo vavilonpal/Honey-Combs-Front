@@ -1,6 +1,13 @@
+import LoginForm from "../components/body/login form/LoginForm";
+import {Wrapper} from "../components/header/wrapper/Wrapper";
 
 
 
-const [user, setUser] = useState([]);
-const [loading, setLoading] = useState(false);
-const [error, setError] = useState(null);
+function LoginPage() {
+    return (
+        <Wrapper>
+            <LoginForm />
+        </Wrapper>
+    )
+}
+export default LoginPage;

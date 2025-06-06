@@ -10,14 +10,20 @@ const Header = ({isLoggedIn}) => {
         <header className="flex">
             <LogoIcon />
             <nav role="navigation" className={'flex flex-row space-x-6 ml-8 items-center'}>
-                <NavItem text={'Tests'}>
-                    <NavMenu items={TESTS}/>
+                <NavItem text="Tests">
+                    <NavMenu items={TESTS} />
                 </NavItem>
 
-                <NavItem text={'Rating'}/>
+                <NavItem text="Rating" to="/rating" />
 
-                <NavItem text={'About Us'}/>
-                {isLoggedIn ? <NavItem text={'Profile'}/> : <NavItem text={'Login'}/>}
+                <NavItem text="About Us" to="/about" />
+
+                {isLoggedIn
+                    ? <NavItem text="Profile" to="/profile" />
+                    : <NavItem text="Login" to="/login" />
+                }
+
+
             </nav>
         </header>
     )
