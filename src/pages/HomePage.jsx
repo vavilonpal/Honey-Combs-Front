@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Preview from "../components/body/home window/Preview";
 import Features from "../components/body/home window/Features";
 import TopUsers from "../components/body/home window/TopUsers";

@@ -21,7 +21,7 @@ export const NavItem = ({ text = 'item', to = '', children }) => {
                 className="flex space-x-2 cursor-pointer items-center"
                 onClick={handleClick}
             >
-                <span className="text-bee-black hover:text-amber-nectar">{text}</span>
+                <span className="text-bee-black hover:text-cream-white">{text}</span>
                 {children &&
                     (selected !== text ? <ArrowDownIcon /> : <ArrowUpIcon />)}
             </div>

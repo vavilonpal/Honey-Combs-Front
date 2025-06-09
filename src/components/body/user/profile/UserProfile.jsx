@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {getUserProfileData} from "../../../api/users-api/UserAuthAPI";
-import {logout} from "../../../service/authService";
+import {getUserProfileData} from "../../../../api/users-api/UserAuthAPI";
+import {logout} from "../../../../service/authService";
 
 const UserProfile = () => {
 
@@ -37,7 +37,7 @@ const UserProfile = () => {
                     localStorage.removeItem('user');
 
                     logout();
-                    window.location.href = '/login'; // или navigate("/login")
+                    window.location.href = '/';
                 }}
             >
                 Выйти

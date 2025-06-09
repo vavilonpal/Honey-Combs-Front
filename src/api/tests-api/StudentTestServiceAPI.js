@@ -1,4 +1,5 @@
 import apiConnect from "../apiConnect";
+import axios from "axios";
 
 /*todo
 * 1) дописать апи сервисы
@@ -18,19 +19,22 @@ import apiConnect from "../apiConnect";
 * 4) интерфейс изменения ответов  учеников
 * */
 
-class TestServiceAPI {
 
-    async getTestById(id){
-        try{
-            const response =  await apiConnect.get(`/test/${id}`);
-            return response.data
-        }catch(err){
-            console.error("Ошибка при получении теста:", err);
-            throw err;
-        }
+const TESTS_API_URL = "http://localhost:8080/api/v1/test/solve";
+const token = localStorage.getItem("access_token");
+
+export const getAllTestsInfo = async () => {
+    try {
+        const response = await axios.get(`${TESTS_API_URL}/info`, {
+            headers: {
+                Authorization: `Bearer ${token}`
+            }
+        });
+        console.log(response.data);
+        return response.data;
+    }catch (error) {
+        console.log("Ошибка при получении списка тестов",error);
     }
-
 }
 
 
-export default TestServiceAPI;

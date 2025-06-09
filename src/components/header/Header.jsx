@@ -3,6 +3,7 @@ import { ReactComponent as LogoIcon} from '../../images/logo-2.svg';
 import {NavItem} from "./nav-item/NavItem";
 import {NavMenu} from "./nav-menu/NavMenu";
 import {TESTS} from "./constants";
+import {Link} from "react-router-dom";
 
 const Header = () => {
 
@@ -27,7 +28,9 @@ const Header = () => {
 
     return (
         <header className="flex">
-            <LogoIcon />
+            <Link to={"/"}>
+                <LogoIcon/>
+            </Link>
             <nav role="navigation" className={'flex flex-row space-x-6 ml-8 items-center'}>
                 <NavItem text="Tests">
                     <NavMenu items={TESTS} />
