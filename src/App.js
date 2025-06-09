@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import LoginPage from "./pages/LoginPage";
 import UserProfilePage from "./pages/UserProfilePage";
 import {useEffect, useState} from "react";
+import HomePage from "./pages/HomePage";
+import Footer from "./components/footer/Footer";
 function App() {
 
     const [userIsLogged, setUserIsLogged] = useState(false);
@@ -31,9 +33,12 @@ function App() {
 
 
           <Routes>
+              <Route path="/" element={<HomePage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/profile" element={<UserProfilePage />} />
           </Routes>
+
+          <Footer/>
       </Router>
   );
 }
