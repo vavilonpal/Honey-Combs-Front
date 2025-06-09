@@ -1,10 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { ReactComponent as LogoIcon} from '../../images/logo-2.svg';
 import {NavItem} from "./nav-item/NavItem";
 import {NavMenu} from "./nav-menu/NavMenu";
 import {TESTS} from "./constants";
 
-const Header = ({isLoggedIn}) => {
+const Header = () => {
+
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+    function handleLoggedIn() {
+        if (!localStorage.getItem("access_token")) {
+            return setIsLoggedIn(false);
+        }
+        setIsLoggedIn(true);
+    }
+    useEffect(() => {
+        handleLoggedIn();
+        const syncAuth = ()=> handleLoggedIn();
+        window.addEventListener('storage', syncAuth);
+        window.addEventListener('authChange', syncAuth);
+        return () => {
+            window.removeEventListener('storage', syncAuth);
+            window.removeEventListener('authChange', syncAuth);
+        }
+    }, []);
 
     return (
         <header className="flex">

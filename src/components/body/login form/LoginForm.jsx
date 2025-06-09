@@ -1,8 +1,8 @@
 import {useState} from "react"
-import axios from "axios"
 import {useNavigate, Link} from "react-router-dom"
 import Swal from "sweetalert2"
 import {loginUser} from "../../../api/users-api/UserAuthAPI";
+import {login} from "../../../service/authService";
 
 
 function LoginForm() {
@@ -18,7 +18,10 @@ function LoginForm() {
             const requestBody = {username, password}
             const response = await loginUser(requestBody);
             console.log(response)
-            localStorage.setItem('access_token', response.data.token);
+
+            //Event listener for login check and set token
+            login(response.data.token);
+            console.log(localStorage.getItem("access_token"))
             navigate("/profile")
         } catch (eror) {
             console.log(eror)

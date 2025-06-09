@@ -7,12 +7,11 @@ const AUTH_API_URL = "http://localhost:8080/api/v1/auth";
 
 
 export const loginUser = async (userData) => {
-    const response = await axios.post(`${AUTH_API_URL}/login`, userData, {
+    return await axios.post(`${AUTH_API_URL}/login`, userData, {
         headers: {
             'Content-Type': 'application/json'
         }
     });
-    return response;
 }
 
 

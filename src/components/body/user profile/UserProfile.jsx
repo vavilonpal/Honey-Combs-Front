@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {getUserProfileData} from "../../../api/users-api/UserAuthAPI";
+import {logout} from "../../../service/authService";
 
 const UserProfile = () => {
 
@@ -32,8 +33,10 @@ const UserProfile = () => {
             <button
                 className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600"
                 onClick={() => {
-                    localStorage.removeItem('token');
+                    localStorage.removeItem("access_token");
                     localStorage.removeItem('user');
+
+                    logout();
                     window.location.href = '/login'; // или navigate("/login")
                 }}
             >
