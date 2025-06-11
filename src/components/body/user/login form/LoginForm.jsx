@@ -1,8 +1,8 @@
 import {useState} from "react"
 import {useNavigate, Link} from "react-router-dom"
 import Swal from "sweetalert2"
-import {loginUser} from "../../../api/users-api/UserAuthAPI";
-import {login} from "../../../service/authService";
+import {loginUser} from "../../../../api/users-api/UserAuthAPI";
+import {login} from "../../../../service/authService";
 
 
 function LoginForm() {

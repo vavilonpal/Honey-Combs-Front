@@ -27,26 +27,26 @@ const Header = () => {
     }, []);
 
     return (
-        <header className="flex">
+        <header className="flex justify-between items-center px-4">
             <Link to={"/"}>
-                <LogoIcon/>
+                <LogoIcon />
             </Link>
-            <nav role="navigation" className={'flex flex-row space-x-6 ml-8 items-center'}>
-                <NavItem text="Tests">
-                    <NavMenu items={TESTS} />
-                </NavItem>
 
-                <NavItem text="Rating" to="/rating" />
+            <div className="flex flex-row space-x-6 items-center">
+                <nav role="navigation" className="flex flex-row space-x-6 items-center">
+                    <NavItem text="Tests">
+                        <NavMenu items={TESTS} />
+                    </NavItem>
 
-                <NavItem text="About Us" to="/about" />
+                    {/*<NavItem text="Rating" to="/rating" />
+            <NavItem text="About Us" to="/about" />*/}
 
-                {isLoggedIn
-                    ? <NavItem text="Profile" to="/profile" />
-                    : <NavItem text="Login" to="/login" />
-                }
-
-
-            </nav>
+                    {isLoggedIn
+                        ? <NavItem text="Profile" to="/profile" />
+                        : <NavItem text="Login" to="/login" />
+                    }
+                </nav>
+            </div>
         </header>
     )
 }

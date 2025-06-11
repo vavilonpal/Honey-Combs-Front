@@ -30,3 +30,7 @@ export const getUserProfileData = async () => {
         console.log("Ошибка при получении данных пользователя:", err);
     }
 }
+
+export const registerUser = async (userData) => {
+    return await axios.post(`${AUTH_API_URL}/register`, userData, {})
+}
